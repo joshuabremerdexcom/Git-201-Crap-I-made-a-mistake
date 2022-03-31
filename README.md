@@ -9,7 +9,7 @@
 
 
 ## Undoing a git rebase
-
+````
 # Solution found here: http://stackoverflow.com/questions/134882/undoing-a-git-rebase
 
 # The easiest way would be to find the head commit of the branch as it was immediately before the rebase started in the reflog...
@@ -18,6 +18,7 @@ git reflog
 
 # Suppose the old commit was HEAD@{5} in the ref log
 git reset --hard HEAD@{5}
+````
 
 
 
