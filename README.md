@@ -1,4 +1,4 @@
-# Git-201-Crap-I-made-a-mistake
+# Git 201: Crap I made a mistake!
 
 ## Dangit, I did something terribly wrong, please tell me git has a magic time machine!?!
 
