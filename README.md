@@ -1,42 +1,8 @@
 # Git-201-Crap-I-made-a-mistake
 
+## Dangit, I did something terribly wrong, please tell me git has a magic time machine!?!
 
-##Recovering from a botched rebase:
-1) mess up a rebase
-2) `git reflog` and find the last commit before the rebase started
-3) `git reset --hard <<that commit>>`
-4) rebase again and try not to mess up this time
-
-
-## Undoing a git rebase
-````
-# Solution found here: http://stackoverflow.com/questions/134882/undoing-a-git-rebase
-
-# The easiest way would be to find the head commit of the branch as it was immediately before the rebase started in the reflog...
-git reflog
-# and to reset the current branch to it (with the usual caveats about being absolutely sure before reseting with the --hard option).
-
-# Suppose the old commit was HEAD@{5} in the ref log
-git reset --hard HEAD@{5}
-````
-
-
-
-## Git rewriting history
-
-https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History
-
-## Git Reset Deep dive
-
-https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified
-
-Git is hard: messing up is easy, and figuring out how to fix your mistakes is impossible. Git documentation has this chicken and egg problem where you can't search for how to get yourself out of a mess, _unless you already know the name of the thing you need to know about_ in order to fix your problem.
-
-So here are some bad situations I've gotten myself into, and how I eventually got myself out of them _in plain english_.
-
-## [Dangit, I did something terribly wrong, please tell me git has a magic time machine!?!](https://dangitgit.com/en#magic-time-machine)
-
-```
+```sh
 git reflog
 # you will see a list of every thing you've
 # done in git, across all branches!
@@ -48,9 +14,23 @@ git reset HEAD@{index}
 
 You can use this to get back stuff you accidentally deleted, or just to remove some stuff you tried that broke the repo, or to recover after a bad merge, or just to go back to a time when things actually worked. I use `reflog` A LOT. Mega hat tip to the many many many many many people who suggested adding it!
 
-## [Dangit, I committed and immediately realized I need to make one small change!](https://dangitgit.com/en#change-last-commit)
+### Lesson
 
+Run the following shell script that will make 4 commits and remove the commits:
+
+```sh
+CURRENT_HEAD=$(git rev-parse HEAD)
+echo 'foo' > a.txt && git add . && git commit -am "Added a.txt file" && git reset --hard $CURRENT_HEAD;
+echo 'bar' > b.txt && git add . && git commit -am "Added b.txt file" && git reset --hard $CURRENT_HEAD;
+echo 'baz' > c.txt && git add . && git commit -am "Added c.txt file" && git reset --hard $CURRENT_HEAD;
+echo 'qux' > c.txt && git add . && git commit -am "Added d.txt file" && git reset --hard $CURRENT_HEAD;
 ```
+
+Let's pretend that you needed b.txt restored. How would you do that? Can you restore that to your filesystem?
+
+## Dangit, I committed and immediately realized I need to make one small change!
+
+```sh
 # make your change
 git add . # or add individual files
 git commit --amend --no-edit
@@ -58,35 +38,72 @@ git commit --amend --no-edit
 # WARNING: never amend public commits
 ```
 
-This usually happens to me if I commit, then run tests/linters... and ugh, I didn't put a space after an equals sign. You could also make the change as a new commit and then do `rebase -i` in order to squash them both together, but this is about a million times faster.
+This usually happens to me if I commit, then run tests/linters... and ugh, I didn't put a space after an equals sign. You could also make the change as a new commit and then do `git rebase -i` in order to squash them both together, but this is about a million times faster.
 
-_Warning: You should never amend commits that have been pushed up to a public/shared branch! Only amend commits that only exist in your local copy or you're gonna have a bad time._
+_Warning: Avoid amending commits that have been pushed up to a public/shared branch. Otherwise people will be confused if they have pulled your branch, and then the commit is missing._
 
-## [Dangit, I need to change the message on my last commit!](https://dangitgit.com/en#change-last-commit-message)
+### Lesson
 
+Set up your system for the lesson by running the following:
+
+```sh
+git checkout -b "Dangit-I-committed-and-immediately-realized-I-need-to-make-one-small-change"
+echo "Hello Dexcm" > hello.txt
+git add hello.txt
+git commit -m "Added new welcoming text file"
 ```
+
+Crap, we mispelled Dexcom. Can you fix it inside that file and amend the commit?
+
+Let's pretend that you needed b.txt restored. How would you do that? Can you restore that to your filesystem?
+
+## Dangit, I need to change the message on my last commit!
+
+```sh
 git commit --amend
 # follow prompts to change the commit message
 ```
 
-Stupid commit message formatting requirements.
+### Lesson
 
-## [Dangit, I accidentally committed something to master that should have been on a brand new branch!](https://dangitgit.com/en#accidental-commit-master)
+Set up your system for the lesson by running the following:
 
+```sh
+git checkout -b "Dangit-I-committed-and-immediately-realized-I-need-to-make-one-small-change"
+echo "Hello Dexcom" > password-in-commit.txt
+git add password-in-commit.txt
+git commit -m "Added file to tell people nxcv09xv980klasdnm"
 ```
+
+Can you amend your commit quickly before you push it up?
+
+## Dangit, I accidentally committed something to master that should have been on a brand new branch!
+
+```sh
 # create a new branch from the current state of master
 git branch some-new-branch-name
-# remove the last commit from the master branch
-git reset HEAD~ --hard
+# reset your master branch to the same commit on origin (Github)
+git reset origin/master --hard
 git checkout some-new-branch-name
 # your commit lives in this branch now :)
 ```
 
-Note: this doesn't work if you've already pushed the commit to a public/shared branch, and if you tried other things first, you might need to `git reset HEAD@{number-of-commits-back}` instead of `HEAD~`. Infinite sadness. Also, many many many people suggested an awesome way to make this shorter that I didn't know myself. Thank you all!
+### Lesson
 
-## [Dangit, I accidentally committed to the wrong branch!](https://dangitgit.com/en#accidental-commit-wrong-branch)
+Set up your system for the lesson by running the following:
 
+```sh
+git checkout master
+echo "Hello Dexcom" > accidental-commit-to-master.txt
+git add accidental-commit-to-master.txt
+git commit -m "Added hello file"
 ```
+
+Can you get your master branch back to the same commit as Github is on? Can you make a new branch with your change without copy and paste?
+
+## Dangit, I accidentally committed to the wrong branch!
+
+```sh
 # undo the last commit, but leave the changes available
 git reset HEAD~ --soft
 git stash
@@ -100,28 +117,45 @@ git commit -m "your message here"
 
 A lot of people have suggested using `cherry-pick` for this situation too, so take your pick on whatever one makes the most sense to you!
 
-```
-git checkout name-of-the-correct-branch
-# grab the last commit to master
-git cherry-pick master
-# delete it from master
-git checkout master
-git reset HEAD~ --hard
+### Lesson
+
+Set up your system for the lesson by running the following:
+
+```sh
+git branch wrong-branch
+git branch right-branch
+git checkout wrong-branch
+echo "Hello Dexcom" > commit-to-wrong-branch.txt
+git add commit-to-wrong-branch.txt
+git commit -m "Added hello file"
 ```
 
-## [Dangit, I tried to run a diff but nothing happened?!](https://dangitgit.com/en#dude-wheres-my-diff)
+Can you "move" this commit over to the right branch? Can you remove the commit from the wrong branch and put the code inside the right branch?
+
+## Dangit, I tried to run a diff but nothing happened?!
 
 If you know that you made changes to files, but `diff` is empty, you probably `add`\-ed your files to staging and you need to use a special flag.
 
-```
+```sh
 git diff --staged
 ```
 
 File under ¯\\\_(ツ)\_/¯ (yes, I know this is a feature, not a bug, but it's baffling and non-obvious the first time it happens to you!)
 
-## [Dangit, I need to undo a commit from like 5 commits ago!](https://dangitgit.com/en#undo-a-commit)
+### Lesson
 
+Set up your system for the lesson by running the following:
+
+```sh
+echo "Hello Dexcom" > where_is_my_diff.txt
+git add commit-to-wrong-branch.txt
 ```
+
+Can you show in your terminal what changed?
+
+## Dangit, I need to undo a commit from like 5 commits ago!
+
+```sh
 # find the commit you need to undo
 git log
 # use the arrow keys to scroll up and down in history
@@ -136,9 +170,22 @@ Turns out you don't have to track down and copy-paste the old file contents into
 
 You can also revert a single file instead of a full commit! But of course, in true git fashion, it's a completely different set of commands...
 
-## [Dangit, I need to undo my changes to a file!](https://dangitgit.com/en#undo-a-file)
+### Lesson
 
+Set up your system for the lesson by running the following:
+
+```sh
+echo 'foo' > a.txt && git add . && git commit -am "Added a.txt file" && git
+echo 'bar' > b.txt && git add . && git commit -am "Added b.txt file" && git
+echo 'baz' > c.txt && git add . && git commit -am "Added c.txt file" && git
+echo 'qux' > c.txt && git add . && git commit -am "Added d.txt file" && git
 ```
+
+You pushed this up yesterday and people are using this code. How can you remove `a.txt` and `b.txt` in the branch and not rewrite the history?
+
+## Dangit, I need to undo my changes to a file!
+
+```sh
 # find a hash for a commit before the file was changed
 git log
 # use the arrow keys to scroll up and down in history
@@ -148,29 +195,17 @@ git checkout [saved hash] -- path/to/file
 git commit -m "Wow, you don't have to copy-paste to undo"
 ```
 
-When I finally figured this out it was HUGE. HUGE. H-U-G-E. But seriously though, on what planet does `checkout --` make sense as the best way to undo a file? :shakes-fist-at-linus-torvalds:
+When I finally figured this out it was HUGE. HUGE. H-U-G-E. But seriously though, on what planet does `checkout --` make sense as the best way to undo a file?
 
-## [Forget this noise, I give up.](https://dangitgit.com/en#forget-this-noise)
+### Lesson
 
-```
-cd ..
-sudo rm -r stupid-git-repo-dir
-git clone https://some.github.url/stupid-git-repo-dir.git
-cd stupid-git-repo-dir
-```
+Set up your system for the lesson by running the following:
 
-Thanks to Eric V. for this one. All complaints about the use of `sudo` in this joke can be directed to him.
-
-For real though, if your branch is sooo borked that you need to reset the state of your repo to be the same as the remote repo in a "git-approved" way, try this, but beware these are destructive and unrecoverable actions!
-
-```
-# get the lastest state of origin
-git fetch origin
-git checkout master
-git reset --hard origin/master
-# delete untracked files and directories
-git clean -d --force
-# repeat checkout/reset/clean for each borked branch
+```sh
+echo 'foo' > a.txt && git add . && git commit -am "Added a.txt file" && git
+echo 'bar' > a.txt && git add . && git commit -am "Updated a.txt file" && git
+echo 'baz' > a.txt && git add . && git commit -am "Updated a.txt file" && git
+echo 'qux' > a.txt && git add . && git commit -am "Updated a.txt file" && git
 ```
 
-\*Disclaimer: This site is not intended to be an exhaustive reference. And yes, there are other ways to do these same things with more theoretical purity or whatever, but I've come to these steps through trial and error and lots of swearing and table flipping, and I had this crazy idea to share them with a healthy dose of levity. Take it or leave it as you will!
+Can you change the contents of `a.txt` to `bar` by using `git checkout`?
