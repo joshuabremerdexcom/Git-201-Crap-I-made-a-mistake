@@ -28,6 +28,13 @@ echo 'qux' > c.txt && git add . && git commit -am "Added d.txt file" && git rese
 
 Let's pretend that you needed b.txt restored. How would you do that? Can you restore that to your filesystem?
 
+### Deeper Dive
+
+Want to learn more about reflog?
+
+* [Git documentation for reflog](https://git-scm.com/docs/git-reflog)
+* [Detailed Discussion of the git reflog command (Atlassian)](https://www.atlassian.com/git/tutorials/rewriting-history/git-reflog)
+
 ## Dangit, I committed and immediately realized I need to make one small change!
 
 ```sh
@@ -57,6 +64,13 @@ Crap, we mispelled Dexcom. Can you fix it inside that file and amend the commit?
 
 Let's pretend that you needed b.txt restored. How would you do that? Can you restore that to your filesystem?
 
+### Deeper Dive
+
+Want to learn more about amending?
+
+* [Git documentation for undoing things](https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things)
+* [Detailed Discussion of git commit --amend (Atlassian)](https://www.atlassian.com/git/tutorials/rewriting-history)
+
 ## Dangit, I need to change the message on my last commit!
 
 ```sh
@@ -76,6 +90,13 @@ git commit -m "Added file to tell people nxcv09xv980klasdnm"
 ```
 
 Can you amend your commit quickly before you push it up?
+
+### Deeper Dive
+
+Want to learn more about amending?
+
+* [Git documentation for undoing things](https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things)
+* [Detailed Discussion of git commit --amend (Atlassian)](https://www.atlassian.com/git/tutorials/rewriting-history)
 
 ## Dangit, I accidentally committed something to master that should have been on a brand new branch!
 
@@ -100,6 +121,13 @@ git commit -m "Added hello file"
 ```
 
 Can you get your master branch back to the same commit as Github is on? Can you make a new branch with your change without copy and paste?
+
+### Deeper Dive
+
+Want to learn more about reset?
+
+* [Git documentation for reset](https://git-scm.com/docs/git-reset)
+* [Detailed Discussion of git reset (Atlassian)](https://www.atlassian.com/git/tutorials/undoing-changes/git-reset)
 
 ## Dangit, I accidentally committed to the wrong branch!
 
@@ -132,6 +160,13 @@ git commit -m "Added hello file"
 
 Can you "move" this commit over to the right branch? Can you remove the commit from the wrong branch and put the code inside the right branch?
 
+### Deeper Dive
+
+Want to learn more about reset?
+
+* [Git documentation for stash](https://git-scm.com/docs/git-stash)
+* [Detailed Discussion of git stash (Atlassian)](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)
+
 ## Dangit, I tried to run a diff but nothing happened?!
 
 If you know that you made changes to files, but `diff` is empty, you probably `add`\-ed your files to staging and you need to use a special flag.
@@ -152,6 +187,12 @@ git add commit-to-wrong-branch.txt
 ```
 
 Can you show in your terminal what changed?
+
+### Deeper Dive
+
+Want to learn more about diff?
+
+* [Git documentation for diff](https://git-scm.com/docs/git-difftool)
 
 ## Dangit, I need to undo a commit from like 5 commits ago!
 
@@ -183,6 +224,13 @@ echo 'qux' > c.txt && git add . && git commit -am "Added d.txt file" && git
 
 You pushed this up yesterday and people are using this code. How can you remove `a.txt` and `b.txt` in the branch and not rewrite the history?
 
+### Deeper Dive
+
+Want to learn more about revert?
+
+* [Git documentation for revert](https://git-scm.com/docs/git-revert)
+* [Detailed Discussion of git revert (Atlassian)](https://www.atlassian.com/git/tutorials/undoing-changes)
+
 ## Dangit, I need to undo my changes to a file!
 
 ```sh
@@ -209,3 +257,10 @@ echo 'qux' > a.txt && git add . && git commit -am "Updated a.txt file" && git
 ```
 
 Can you change the contents of `a.txt` to `bar` by using `git checkout`?
+
+### Deeper Dive
+
+Want to learn more about checkout?
+
+* [Git documentation for checkout](https://git-scm.com/docs/git-checkout)
+* [Detailed Discussion of git checkout (Atlassian)](https://www.atlassian.com/git/tutorials/undoing-changes)
