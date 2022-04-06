@@ -80,7 +80,7 @@ git add password-in-commit.txt
 git commit -m "Added file to tell people nxcv09xv980klasdnm"
 ```
 
-Can you amend your commit quickly before you push it up?
+Oh no, you put your password inside your commit! Can you amend your commit quickly before you push it up?
 
 #### Deeper Dive
 
