@@ -8,6 +8,8 @@ Welcome! If you're here, you're ready to learn about how to clean up and fix all
 
 2. Create an issue with your name. [Click here to create one](https://github.com/joshuabremerdexcom/Git-201-Crap-I-made-a-mistake/issues/new?assignees=&labels=&template=scorecard-for-training.md&title=).
 
+![Issue Example](./img/issue-example.png)
+
 
 3. Use the checklist created in the issue to go through the exercises below!
 
