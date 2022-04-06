@@ -242,10 +242,10 @@ You can also revert a single file instead of a full commit! But of course, in tr
 Set up your system for the lesson by running the following:
 
 ```sh
-echo 'foo' > a.txt && git add . && git commit -am "Added a.txt file" && git
-echo 'bar' > b.txt && git add . && git commit -am "Added b.txt file" && git
-echo 'baz' > c.txt && git add . && git commit -am "Added c.txt file" && git
-echo 'qux' > c.txt && git add . && git commit -am "Added d.txt file" && git
+echo 'foo' > a.txt && git add . && git commit -am "Added a.txt file"
+echo 'bar' > b.txt && git add . && git commit -am "Added b.txt file"
+echo 'baz' > c.txt && git add . && git commit -am "Added c.txt file"
+echo 'qux' > c.txt && git add . && git commit -am "Added d.txt file"
 ```
 
 You pushed this up yesterday and people are using this code. How can you remove `a.txt` and `b.txt` in the branch and not rewrite the history?
@@ -276,10 +276,10 @@ When I finally figured this out it was HUGE. HUGE. H-U-G-E. But seriously though
 Set up your system for the lesson by running the following:
 
 ```sh
-echo 'foo' > a.txt && git add . && git commit -am "Added a.txt file" && git
-echo 'bar' > a.txt && git add . && git commit -am "Updated a.txt file" && git
-echo 'baz' > a.txt && git add . && git commit -am "Updated a.txt file" && git
-echo 'qux' > a.txt && git add . && git commit -am "Updated a.txt file" && git
+echo 'foo' > a.txt && git add . && git commit -am "Added a.txt file"
+echo 'bar' > a.txt && git add . && git commit -am "Updated a.txt file"
+echo 'baz' > a.txt && git add . && git commit -am "Updated a.txt file"
+echo 'qux' > a.txt && git add . && git commit -am "Updated a.txt file"
 ```
 
 Can you change the contents of `a.txt` to `bar` by using `git checkout`?
