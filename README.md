@@ -1,5 +1,19 @@
 # Git 201: Crap I made a mistake!
 
+Welcome! If you're here, you're ready to learn about how to clean up and fix all the inevitable mistakes you make in Git every day. Let's get started!
+
+## How do I get started on this?
+
+1. Fork this repository.
+
+<a class="github-button" href="https://github.com/joshuabremerdexcom/Git-201-Crap-I-made-a-mistake/fork" data-size="large" data-show-count="true" aria-label="Fork joshuabremerdexcom/Git-201-Crap-I-made-a-mistake on GitHub">Fork</a>
+
+2. Create an issue with your name. Use that as the checklist to work through.
+
+<a class="github-button" href="https://github.com/joshuabremerdexcom/Git-201-Crap-I-made-a-mistake/issues" data-size="large" data-show-count="true" aria-label="Issue joshuabremerdexcom/Git-201-Crap-I-made-a-mistake on GitHub">Issue</a>
+
+3. Go through the exercises below!
+
 ## Dangit, I did something terribly wrong, please tell me git has a magic time machine!?!
 
 ```sh
