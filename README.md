@@ -23,8 +23,6 @@ Welcome! If you're here, you're ready to learn about how to clean up and fix all
 * [Dangit, I tried to run a diff but nothing happened?!](#dangit-i-accidentally-committed-to-the-wrong-branch)
 * [Dangit, I need to undo a commit from like 5 commits ago!](#dangit-i-need-to-undo-a-commit-from-like-5-commits-ago)
 * [Dangit, I need to undo my changes to a file!](#dangit-i-need-to-undo-my-changes-to-a-file)
-* [Dangit, I did something terribly wrong, please tell me git has a magic time machine!?!](#dangit-i-accidentally-committed-to-the-wrong-branch)
-
 
 ### Dangit, I did something terribly wrong, please tell me git has a magic time machine!?!
 
