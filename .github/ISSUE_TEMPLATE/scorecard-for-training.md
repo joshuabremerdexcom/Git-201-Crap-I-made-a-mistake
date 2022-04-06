@@ -1,12 +1,3 @@
----
-name: Scorecard for Training
-about: Git Training Scorecard
-title: ''
-labels: ''
-assignees: ''
-
----
-
 Check when you finish a topic:
 
 - [ ] Dangit, I committed and immediately realized I need to make one small change!
