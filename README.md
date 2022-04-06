@@ -11,7 +11,9 @@ Welcome! If you're here, you're ready to learn about how to clean up and fix all
 
 3. Use the checklist created in the issue to go through the exercises below!
 
-## Dangit, I did something terribly wrong, please tell me git has a magic time machine!?!
+## Exercises
+
+### Dangit, I did something terribly wrong, please tell me git has a magic time machine!?!
 
 ```sh
 git reflog
@@ -25,7 +27,7 @@ git reset HEAD@{index}
 
 You can use this to get back stuff you accidentally deleted, or just to remove some stuff you tried that broke the repo, or to recover after a bad merge, or just to go back to a time when things actually worked. I use `reflog` A LOT. Mega hat tip to the many many many many many people who suggested adding it!
 
-### Lesson
+#### Lesson
 
 Run the following shell script that will make 4 commits and remove the commits:
 
@@ -39,14 +41,14 @@ echo 'qux' > c.txt && git add . && git commit -am "Added d.txt file" && git rese
 
 Let's pretend that you needed b.txt restored. How would you do that? Can you restore that to your filesystem?
 
-### Deeper Dive
+#### Deeper Dive
 
 Want to learn more about reflog?
 
 * [Git documentation for reflog](https://git-scm.com/docs/git-reflog)
 * [Detailed Discussion of the git reflog command (Atlassian)](https://www.atlassian.com/git/tutorials/rewriting-history/git-reflog)
 
-## Dangit, I committed and immediately realized I need to make one small change!
+### Dangit, I committed and immediately realized I need to make one small change!
 
 ```sh
 # make your change
@@ -60,7 +62,7 @@ This usually happens to me if I commit, then run tests/linters... and ugh, I did
 
 _Warning: Avoid amending commits that have been pushed up to a public/shared branch. Otherwise people will be confused if they have pulled your branch, and then the commit is missing._
 
-### Lesson
+#### Lesson
 
 Set up your system for the lesson by running the following:
 
@@ -75,21 +77,21 @@ Crap, we mispelled Dexcom. Can you fix it inside that file and amend the commit?
 
 Let's pretend that you needed b.txt restored. How would you do that? Can you restore that to your filesystem?
 
-### Deeper Dive
+#### Deeper Dive
 
 Want to learn more about amending?
 
 * [Git documentation for undoing things](https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things)
 * [Detailed Discussion of git commit --amend (Atlassian)](https://www.atlassian.com/git/tutorials/rewriting-history)
 
-## Dangit, I need to change the message on my last commit!
+### Dangit, I need to change the message on my last commit!
 
 ```sh
 git commit --amend
 # follow prompts to change the commit message
 ```
 
-### Lesson
+#### Lesson
 
 Set up your system for the lesson by running the following:
 
@@ -102,14 +104,14 @@ git commit -m "Added file to tell people nxcv09xv980klasdnm"
 
 Can you amend your commit quickly before you push it up?
 
-### Deeper Dive
+#### Deeper Dive
 
 Want to learn more about amending?
 
 * [Git documentation for undoing things](https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things)
 * [Detailed Discussion of git commit --amend (Atlassian)](https://www.atlassian.com/git/tutorials/rewriting-history)
 
-## Dangit, I accidentally committed something to master that should have been on a brand new branch!
+### Dangit, I accidentally committed something to master that should have been on a brand new branch!
 
 ```sh
 # create a new branch from the current state of master
@@ -120,7 +122,7 @@ git checkout some-new-branch-name
 # your commit lives in this branch now :)
 ```
 
-### Lesson
+#### Lesson
 
 Set up your system for the lesson by running the following:
 
@@ -133,14 +135,14 @@ git commit -m "Added hello file"
 
 Can you get your master branch back to the same commit as Github is on? Can you make a new branch with your change without copy and paste?
 
-### Deeper Dive
+#### Deeper Dive
 
 Want to learn more about reset?
 
 * [Git documentation for reset](https://git-scm.com/docs/git-reset)
 * [Detailed Discussion of git reset (Atlassian)](https://www.atlassian.com/git/tutorials/undoing-changes/git-reset)
 
-## Dangit, I accidentally committed to the wrong branch!
+### Dangit, I accidentally committed to the wrong branch!
 
 ```sh
 # undo the last commit, but leave the changes available
@@ -156,7 +158,7 @@ git commit -m "your message here"
 
 A lot of people have suggested using `cherry-pick` for this situation too, so take your pick on whatever one makes the most sense to you!
 
-### Lesson
+#### Lesson
 
 Set up your system for the lesson by running the following:
 
@@ -171,14 +173,14 @@ git commit -m "Added hello file"
 
 Can you "move" this commit over to the right branch? Can you remove the commit from the wrong branch and put the code inside the right branch?
 
-### Deeper Dive
+#### Deeper Dive
 
 Want to learn more about reset?
 
 * [Git documentation for stash](https://git-scm.com/docs/git-stash)
 * [Detailed Discussion of git stash (Atlassian)](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)
 
-## Dangit, I tried to run a diff but nothing happened?!
+### Dangit, I tried to run a diff but nothing happened?!
 
 If you know that you made changes to files, but `diff` is empty, you probably `add`\-ed your files to staging and you need to use a special flag.
 
@@ -188,7 +190,7 @@ git diff --staged
 
 File under ¯\\\_(ツ)\_/¯ (yes, I know this is a feature, not a bug, but it's baffling and non-obvious the first time it happens to you!)
 
-### Lesson
+#### Lesson
 
 Set up your system for the lesson by running the following:
 
@@ -199,13 +201,13 @@ git add commit-to-wrong-branch.txt
 
 Can you show in your terminal what changed?
 
-### Deeper Dive
+#### Deeper Dive
 
 Want to learn more about diff?
 
 * [Git documentation for diff](https://git-scm.com/docs/git-difftool)
 
-## Dangit, I need to undo a commit from like 5 commits ago!
+### Dangit, I need to undo a commit from like 5 commits ago!
 
 ```sh
 # find the commit you need to undo
@@ -222,7 +224,7 @@ Turns out you don't have to track down and copy-paste the old file contents into
 
 You can also revert a single file instead of a full commit! But of course, in true git fashion, it's a completely different set of commands...
 
-### Lesson
+#### Lesson
 
 Set up your system for the lesson by running the following:
 
@@ -235,14 +237,14 @@ echo 'qux' > c.txt && git add . && git commit -am "Added d.txt file" && git
 
 You pushed this up yesterday and people are using this code. How can you remove `a.txt` and `b.txt` in the branch and not rewrite the history?
 
-### Deeper Dive
+#### Deeper Dive
 
 Want to learn more about revert?
 
 * [Git documentation for revert](https://git-scm.com/docs/git-revert)
 * [Detailed Discussion of git revert (Atlassian)](https://www.atlassian.com/git/tutorials/undoing-changes)
 
-## Dangit, I need to undo my changes to a file!
+### Dangit, I need to undo my changes to a file!
 
 ```sh
 # find a hash for a commit before the file was changed
@@ -256,7 +258,7 @@ git commit -m "Wow, you don't have to copy-paste to undo"
 
 When I finally figured this out it was HUGE. HUGE. H-U-G-E. But seriously though, on what planet does `checkout --` make sense as the best way to undo a file?
 
-### Lesson
+#### Lesson
 
 Set up your system for the lesson by running the following:
 
@@ -269,7 +271,7 @@ echo 'qux' > a.txt && git add . && git commit -am "Updated a.txt file" && git
 
 Can you change the contents of `a.txt` to `bar` by using `git checkout`?
 
-### Deeper Dive
+#### Deeper Dive
 
 Want to learn more about checkout?
 
