@@ -174,7 +174,7 @@ Set up your system for the lesson by running the following:
 
 ```sh
 echo "Hello Dexcom" > where_is_my_diff.txt
-git add commit-to-wrong-branch.txt
+git add where_is_my_diff.txt
 ```
 
 Can you show in your terminal what changed?
