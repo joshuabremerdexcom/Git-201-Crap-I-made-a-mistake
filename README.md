@@ -15,10 +15,10 @@ Welcome! If you're here, you're ready to learn about how to clean up and fix all
 
 ### Table of Contents
 
-* [Dangit, I did something terribly wrong, please tell me git has a magic time machine!?!](#dangit-i-committed-and-immediately-realized-i-need-to-make-one-small-change)
+* [Dangit, I did something terribly wrong, please tell me git has a magic time machine!?!](#dangit-i-did-something-terribly-wrong-please-tell-me-git-has-a-magic-time-machine)
 * [Dangit, I committed and immediately realized I need to make one small change!](#dangit-i-committed-and-immediately-realized-i-need-to-make-one-small-change)
 * [Dangit, I need to change the message on my last commit!](#dangit-i-need-to-change-the-message-on-my-last-commit)
-* [Dangit, I accidentally committed something to master that should have been on a brand new banch!](#dangit-i-accidentally-committed-to-the-wrong-branch)
+* [Dangit, I accidentally committed something to master that should have been on a brand new branch!](#dangit-i-accidentally-committed-something-to-master-that-should-have-been-on-a-brand-new-branch)
 * [Dangit, I accidentally committed to the wrong branch!](#dangit-i-tried-to-run-a-diff-but-nothing-happened)
 * [Dangit, I tried to run a diff but nothing happened?!](#dangit-i-accidentally-committed-to-the-wrong-branch)
 * [Dangit, I need to undo a commit from like 5 commits ago!](#dangit-i-need-to-undo-a-commit-from-like-5-commits-ago)
