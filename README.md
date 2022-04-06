@@ -17,7 +17,6 @@ Welcome! If you're here, you're ready to learn about how to clean up and fix all
 
 ### Table of Contents
 
-* [Dangit, I did something terribly wrong, please tell me git has a magic time machine!?!](#dangit-i-did-something-terribly-wrong-please-tell-me-git-has-a-magic-time-machine)
 * [Dangit, I committed and immediately realized I need to make one small change!](#dangit-i-committed-and-immediately-realized-i-need-to-make-one-small-change)
 * [Dangit, I need to change the message on my last commit!](#dangit-i-need-to-change-the-message-on-my-last-commit)
 * [Dangit, I accidentally committed something to master that should have been on a brand new branch!](#dangit-i-accidentally-committed-something-to-master-that-should-have-been-on-a-brand-new-branch)
@@ -25,41 +24,7 @@ Welcome! If you're here, you're ready to learn about how to clean up and fix all
 * [Dangit, I tried to run a diff but nothing happened?!](#dangit-i-accidentally-committed-to-the-wrong-branch)
 * [Dangit, I need to undo a commit from like 5 commits ago!](#dangit-i-need-to-undo-a-commit-from-like-5-commits-ago)
 * [Dangit, I need to undo my changes to a file!](#dangit-i-need-to-undo-my-changes-to-a-file)
-
-### Dangit, I did something terribly wrong, please tell me git has a magic time machine!?!
-
-```sh
-git reflog
-# you will see a list of every thing you've
-# done in git, across all branches!
-# each one has an index HEAD@{index}
-# find the one before you broke everything
-git reset HEAD@{index}
-# magic time machine
-```
-
-You can use this to get back stuff you accidentally deleted, or just to remove some stuff you tried that broke the repo, or to recover after a bad merge, or just to go back to a time when things actually worked. I use `reflog` A LOT. Mega hat tip to the many many many many many people who suggested adding it!
-
-#### Lesson
-
-Run the following shell script that will make 4 commits and remove the commits:
-
-```sh
-CURRENT_HEAD=$(git rev-parse HEAD)
-echo 'foo' > a.txt && git add . && git commit -am "Added a.txt file" && git reset --hard $CURRENT_HEAD;
-echo 'bar' > b.txt && git add . && git commit -am "Added b.txt file" && git reset --hard $CURRENT_HEAD;
-echo 'baz' > c.txt && git add . && git commit -am "Added c.txt file" && git reset --hard $CURRENT_HEAD;
-echo 'qux' > c.txt && git add . && git commit -am "Added d.txt file" && git reset --hard $CURRENT_HEAD;
-```
-
-Let's pretend that you needed b.txt restored. How would you do that? Can you restore that to your filesystem?
-
-#### Deeper Dive
-
-Want to learn more about reflog?
-
-* [Git documentation for reflog](https://git-scm.com/docs/git-reflog)
-* [Detailed Discussion of the git reflog command (Atlassian)](https://www.atlassian.com/git/tutorials/rewriting-history/git-reflog)
+* [Dangit, I did something terribly wrong, please tell me git has a magic time machine!?!](#dangit-i-did-something-terribly-wrong-please-tell-me-git-has-a-magic-time-machine)
 
 ### Dangit, I committed and immediately realized I need to make one small change!
 
@@ -290,3 +255,39 @@ Want to learn more about checkout?
 
 * [Git documentation for checkout](https://git-scm.com/docs/git-checkout)
 * [Detailed Discussion of git checkout (Atlassian)](https://www.atlassian.com/git/tutorials/undoing-changes)
+
+### Dangit, I did something terribly wrong, please tell me git has a magic time machine!?!
+
+```sh
+git reflog
+# you will see a list of every thing you've
+# done in git, across all branches!
+# each one has an index HEAD@{index}
+# find the one before you broke everything
+git reset HEAD@{index}
+# magic time machine
+```
+
+You can use this to get back stuff you accidentally deleted, or just to remove some stuff you tried that broke the repo, or to recover after a bad merge, or just to go back to a time when things actually worked. I use `reflog` A LOT. Mega hat tip to the many many many many many people who suggested adding it!
+
+#### Lesson
+
+Run the following shell script that will make 4 commits and remove the commits:
+
+```sh
+CURRENT_HEAD=$(git rev-parse HEAD)
+echo 'foo' > a.txt && git add . && git commit -am "Added a.txt file" && git reset --hard $CURRENT_HEAD;
+echo 'bar' > b.txt && git add . && git commit -am "Added b.txt file" && git reset --hard $CURRENT_HEAD;
+echo 'baz' > c.txt && git add . && git commit -am "Added c.txt file" && git reset --hard $CURRENT_HEAD;
+echo 'qux' > c.txt && git add . && git commit -am "Added d.txt file" && git reset --hard $CURRENT_HEAD;
+```
+
+Let's pretend that you needed b.txt restored. How would you do that? Can you restore that to your filesystem?
+
+#### Deeper Dive
+
+Want to learn more about reflog?
+
+* [Git documentation for reflog](https://git-scm.com/docs/git-reflog)
+* [Detailed Discussion of the git reflog command (Atlassian)](https://www.atlassian.com/git/tutorials/rewriting-history/git-reflog)
+
