@@ -2,6 +2,9 @@
 
 Welcome! If you're here, you're ready to learn about how to clean up and fix all the inevitable mistakes you make in Git every day. Let's get started!
 
+## Citation
+
+I used the site https://dangitgit.com/en to help construct this guide. Thank you to ksylor and all the contributors to this [project](https://github.com/ksylor/ohshitgit).
 ## How do I get started on this?
 
 1. Fork this repository. Click "Fork" in the upper right.
