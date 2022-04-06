@@ -19,7 +19,7 @@ Welcome! If you're here, you're ready to learn about how to clean up and fix all
 
 * [Dangit, I committed and immediately realized I need to make one small change!](#dangit-i-committed-and-immediately-realized-i-need-to-make-one-small-change)
 * [Dangit, I need to change the message on my last commit!](#dangit-i-need-to-change-the-message-on-my-last-commit)
-* [Dangit, I accidentally committed something to master that should have been on a brand new branch!](#dangit-i-accidentally-committed-something-to-master-that-should-have-been-on-a-brand-new-branch)
+* [Dangit, I accidentally committed something to main that should have been on a brand new branch!](#dangit-i-accidentally-committed-something-to-main-that-should-have-been-on-a-brand-new-branch)
 * [Dangit, I accidentally committed to the wrong branch!](#dangit-i-tried-to-run-a-diff-but-nothing-happened)
 * [Dangit, I tried to run a diff but nothing happened?!](#dangit-i-accidentally-committed-to-the-wrong-branch)
 * [Dangit, I need to undo a commit from like 5 commits ago!](#dangit-i-need-to-undo-a-commit-from-like-5-commits-ago)
@@ -89,13 +89,13 @@ Want to learn more about amending?
 * [Git documentation for undoing things](https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things)
 * [Detailed Discussion of git commit --amend (Atlassian)](https://www.atlassian.com/git/tutorials/rewriting-history)
 
-### Dangit, I accidentally committed something to master that should have been on a brand new branch!
+### Dangit, I accidentally committed something to main that should have been on a brand new branch!
 
 ```sh
-# create a new branch from the current state of master
+# create a new branch from the current state of main
 git branch some-new-branch-name
-# reset your master branch to the same commit on origin (Github)
-git reset origin/master --hard
+# reset your main branch to the same commit on origin (Github)
+git reset origin/main --hard
 git checkout some-new-branch-name
 # your commit lives in this branch now :)
 ```
@@ -105,13 +105,13 @@ git checkout some-new-branch-name
 Set up your system for the lesson by running the following:
 
 ```sh
-git checkout master
-echo "Hello Dexcom" > accidental-commit-to-master.txt
-git add accidental-commit-to-master.txt
+git checkout main
+echo "Hello Dexcom" > accidental-commit-to-main.txt
+git add accidental-commit-to-main.txt
 git commit -m "Added hello file"
 ```
 
-Can you get your master branch back to the same commit as Github is on? Can you make a new branch with your change without copy and paste?
+Can you get your main branch back to the same commit as Github is on? Can you make a new branch with your change without copy and paste?
 
 #### Deeper Dive
 
