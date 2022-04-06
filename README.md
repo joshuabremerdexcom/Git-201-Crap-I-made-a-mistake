@@ -210,7 +210,7 @@ Set up your system for the lesson by running the following:
 echo 'foo' > a.txt && git add . && git commit -am "Added a.txt file"
 echo 'bar' > b.txt && git add . && git commit -am "Added b.txt file"
 echo 'baz' > c.txt && git add . && git commit -am "Added c.txt file"
-echo 'qux' > c.txt && git add . && git commit -am "Added d.txt file"
+echo 'qux' > d.txt && git add . && git commit -am "Added d.txt file"
 ```
 
 You pushed this up yesterday and people are using this code. How can you remove `a.txt` and `b.txt` in the branch and not rewrite the history?
