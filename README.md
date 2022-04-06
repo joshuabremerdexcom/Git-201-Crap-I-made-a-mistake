@@ -4,15 +4,12 @@ Welcome! If you're here, you're ready to learn about how to clean up and fix all
 
 ## How do I get started on this?
 
-1. Fork this repository.
+1. Fork this repository. Click "Fork" in the upper right.
 
-<a class="github-button" href="https://github.com/joshuabremerdexcom/Git-201-Crap-I-made-a-mistake/fork" data-size="large" data-show-count="true" aria-label="Fork joshuabremerdexcom/Git-201-Crap-I-made-a-mistake on GitHub">Fork</a>
+2. Create an issue with your name. [Click here to create one](https://github.com/joshuabremerdexcom/Git-201-Crap-I-made-a-mistake/issues/new?assignees=&labels=&template=scorecard-for-training.md&title=).
 
-2. Create an issue with your name. Use that as the checklist to work through.
 
-<a class="github-button" href="https://github.com/joshuabremerdexcom/Git-201-Crap-I-made-a-mistake/issues" data-size="large" data-show-count="true" aria-label="Issue joshuabremerdexcom/Git-201-Crap-I-made-a-mistake on GitHub">Issue</a>
-
-3. Go through the exercises below!
+3. Use the checklist created in the issue to go through the exercises below!
 
 ## Dangit, I did something terribly wrong, please tell me git has a magic time machine!?!
 
